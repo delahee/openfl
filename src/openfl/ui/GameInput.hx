@@ -74,13 +74,16 @@ import lime.ui.GamepadButton;
 	
 	
 	#if lime
-	@:noCompletion private static function __getDevice (gamepad:Gamepad):GameInputDevice {
+	@:noCompletion private static function __getDevice (gamepad:lime.ui.Gamepad):GameInputDevice {
 		
 		if (gamepad == null) return null;
 		
 		if (!__devices.exists (gamepad)) {
 			
 			var device = new GameInputDevice (gamepad.guid, gamepad.name);
+			#if lime
+			device.setGamepad( gamepad );
+			#end
 			__deviceList.push (device);
 			__devices.set (gamepad, device);
 			numDevices = __deviceList.length;

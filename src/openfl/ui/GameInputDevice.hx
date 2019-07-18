@@ -52,7 +52,7 @@ import lime.ui.Gamepad;
 	@:noCompletion private var __controls = new Array<GameInputControl> ();
 	
 	#if lime
-	@:noCompletion private var __gamepad:Gamepad;
+	@:noCompletion private var __gamepad:lime.ui.Gamepad;
 	#end
 	
 	
@@ -157,6 +157,14 @@ import lime.ui.Gamepad;
 		
 		return __controls.length;
 		
+	}
+	
+	public function setGamepad(g:lime.ui.Gamepad){
+		__gamepad = g;
+	}
+	
+	public function getGamepad() : lime.ui.Gamepad{
+		return __gamepad;
 	}
 	
 	
